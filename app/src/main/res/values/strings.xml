@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">memes</string>
+    <string name="icon_desc">icon</string>
+    <string name="login_hint">Логин</string>
+    <string name="password_hint">Пароль</string>
+    <string name="login_button">Войти</string>
+</resources>

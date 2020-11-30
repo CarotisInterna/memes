@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!--        <item name="android:windowBackground">@drawable/background_splash</item>-->
+    </style>
+    <!--    <style name="AppTheme.Launcher" parent="AppTheme">-->
+    <!--        <item name="android:roundIcon">@mipmap/ic_launcher</item>-->
+    <!--    </style>-->
+</resources>
