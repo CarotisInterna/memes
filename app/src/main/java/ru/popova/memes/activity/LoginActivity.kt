@@ -12,6 +12,7 @@ import ru.popova.memes.R
 import ru.popova.memes.dto.LoginRequestDto
 import ru.popova.memes.task.TaskManager
 import ru.popova.memes.util.Failure
+import ru.popova.memes.util.PreferencesService
 import ru.popova.memes.util.Success
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText
 import studio.carbonylgroup.textfieldboxes.TextFieldBoxes
@@ -37,36 +38,52 @@ class LoginActivity : AppCompatActivity() {
                     .onEach { it.key.setError("Поле не может быть пустым", false) }
                     .isEmpty()
             if (noErrors) {
-                val progressBar: ProgressBar = findViewById(R.id.progress_bar)
-                val loginRequestDto = LoginRequestDto(
+                runAuthenticationProcess(
+                    loginButton,
                     loginField.text.toString(),
                     passwordField.text.toString()
                 )
-                loginButton.visibility = Button.GONE
-                progressBar.visibility = ProgressBar.VISIBLE
-                //Emulate long process
-                Handler().postDelayed({
-                    val task = TaskManager.loginTask.execute(loginRequestDto)
-                    when (val result = task.get()) {
-                        is Success -> {
-                            Log.i(LoginActivity::class.toString(), "Success:${result.value}")
-                            startActivity(Intent(this@LoginActivity, MainTabActivity::class.java))
-                        }
-                        is Failure -> {
-                            val snackbar = Snackbar.make(
-                                findViewById(R.id.login_view),
-                                "Произошла ошибка при входе.Попробуйте позже.",
-                                Snackbar.LENGTH_LONG
-                            )
-                            snackbar.view.setBackgroundColor(resources.getColor(R.color.snackbar))
-                            snackbar.show()
-                        }
-                    }
-                    progressBar.visibility = ProgressBar.GONE
-                    loginButton.visibility = Button.VISIBLE
-                }, 3000)
-
             }
         }
+    }
+
+    private fun runAuthenticationProcess(
+        loginButton: Button,
+        login: String,
+        password: String
+    ) {
+        val progressBar: ProgressBar = findViewById(R.id.progress_bar)
+        val loginRequestDto = LoginRequestDto(
+            login,
+            password
+        )
+        loginButton.visibility = Button.GONE
+        progressBar.visibility = ProgressBar.VISIBLE
+        //Emulate long process
+        Handler().postDelayed({
+            val task = TaskManager.loginTask.execute(loginRequestDto)
+            when (val result = task.get()) {
+                is Success -> {
+                    Log.i(LoginActivity::class.toString(), "Success:${result.value}")
+
+                    PreferencesService(this@LoginActivity).saveAuthInfo(result.value)
+
+                    startActivity(Intent(this@LoginActivity, MainTabActivity::class.java))
+                }
+                is Failure -> showSnackbarWIthErrorMessage()
+            }
+            progressBar.visibility = ProgressBar.GONE
+            loginButton.visibility = Button.VISIBLE
+        }, 3000)
+    }
+
+    private fun showSnackbarWIthErrorMessage() {
+        val snackbar = Snackbar.make(
+            findViewById(R.id.login_view),
+            "Во время запроса произошла ошибка, возможно вы неверно ввели логин/пароль",
+            Snackbar.LENGTH_LONG
+        )
+        snackbar.view.setBackgroundColor(resources.getColor(R.color.snackbar))
+        snackbar.show()
     }
 }
