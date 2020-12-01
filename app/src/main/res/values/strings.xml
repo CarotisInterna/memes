@@ -4,4 +4,7 @@
     <string name="login_hint">Логин</string>
     <string name="password_hint">Пароль</string>
     <string name="login_button">Войти</string>
+    <string name="memes_list_title">Популярные мемы</string>
+    <string name="profile_placeholder">Profile here</string>
+    <string name="new_meme_placeholder">Add new meme here</string>
 </resources>

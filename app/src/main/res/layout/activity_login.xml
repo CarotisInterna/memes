@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainColor">
+    android:background="@color/main_color">
 
     <LinearLayout
         android:id="@+id/login_view"
@@ -73,7 +73,7 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/button_ripple"
         android:text="@string/login_button"
-        android:textColor="@color/mainColor"
+        android:textColor="@color/main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
