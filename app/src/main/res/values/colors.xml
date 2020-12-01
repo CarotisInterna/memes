@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background">#23213F</color>
+    <color name="mainColor">#23213F</color>
+    <color name="button">#1EF0D7</color>
+    <color name="button_pressed">#FFFFFF</color>
+    <color name="snackbar">#FF575D</color>
 </resources>
