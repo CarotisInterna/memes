@@ -4,4 +4,5 @@
     <color name="button">#1EF0D7</color>
     <color name="button_pressed">#FFFFFF</color>
     <color name="snackbar">#FF575D</color>
+    <color name="navbar">#12102B</color>
 </resources>
