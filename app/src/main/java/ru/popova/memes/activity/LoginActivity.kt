@@ -70,14 +70,14 @@ class LoginActivity : AppCompatActivity() {
 
                     startActivity(Intent(this@LoginActivity, MainTabActivity::class.java))
                 }
-                is Failure -> showSnackbarWIthErrorMessage()
+                is Failure -> showSnackbarWithErrorMessage()
             }
             progressBar.visibility = ProgressBar.GONE
             loginButton.visibility = Button.VISIBLE
-        }, 3000)
+        }, 300)
     }
 
-    private fun showSnackbarWIthErrorMessage() {
+    private fun showSnackbarWithErrorMessage() {
         val snackbar = Snackbar.make(
             findViewById(R.id.login_view),
             "Во время запроса произошла ошибка, возможно вы неверно ввели логин/пароль",
