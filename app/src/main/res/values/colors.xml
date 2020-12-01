@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="mainColor">#23213F</color>
+    <color name="main_color">#23213F</color>
     <color name="button">#1EF0D7</color>
     <color name="button_pressed">#FFFFFF</color>
     <color name="snackbar">#FF575D</color>
     <color name="navbar">#12102B</color>
+    <color name="secondary_color">#312F51</color>
 </resources>
