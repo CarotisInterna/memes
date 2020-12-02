@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.fragment.MemeListFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/meme_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_color"
+            android:backgroundTint="@color/secondary_color"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/close_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription=" "
+                android:src="@drawable/cross" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:background="@android:color/transparent"
+                android:src="@drawable/share"
+                android:text="@string/create" />
+        </androidx.appcompat.widget.Toolbar>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/meme_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:text="Заголовок мема"
+        android:textAppearance="@style/title"
+        android:translationY="-1.41sp" />
+
+    <ImageView
+        android:id="@+id/meme_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/surf_edu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/meme_date"
+        android:layout_width="81dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="536dp"
+        android:gravity="top"
+        android:text="опубликован"
+        android:textAppearance="@style/gennytails"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/meme_fav_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="365dp"
+        android:layout_marginTop="536dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="лайк"
+        android:src="@drawable/fav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/meme_desc"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="569dp"
+        android:gravity="top"
+        android:lineSpacingExtra="3sp"
+        android:text="Описание мема"
+        android:textAppearance="@style/title"
+        android:translationY="-1.64sp" />
+</FrameLayout>
