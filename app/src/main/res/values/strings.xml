@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">memes</string>
     <string name="icon_desc">icon</string>
@@ -7,4 +8,5 @@
     <string name="memes_list_title">Популярные мемы</string>
     <string name="profile_placeholder">Profile here</string>
     <string name="new_meme_placeholder">Add new meme here</string>
+    <string name="err">"Не удалось загрузить ленту.\nОбновите экран или попробуйте позже."</string>
 </resources>
