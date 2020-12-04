@@ -36,8 +36,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
                 android:background="@android:color/transparent"
-                android:src="@drawable/share"
-                android:text="@string/create" />
+                android:src="@drawable/share" />
         </androidx.appcompat.widget.Toolbar>
     </RelativeLayout>
 

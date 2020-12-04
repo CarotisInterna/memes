@@ -10,9 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import ru.popova.memes.MemeModel
 import ru.popova.memes.R
 import ru.popova.memes.activity.MemeActivity
-import ru.popova.memes.dto.MemeDto
 
 class MemeViewHolder(
     itemView: View,
@@ -25,7 +25,7 @@ class MemeViewHolder(
 
 class MemeListAdapter(
     private val ctx: Context,
-    private val list: List<MemeDto>
+    private val list: List<MemeModel>
 ) :
     RecyclerView.Adapter<MemeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemeViewHolder {
@@ -37,7 +37,7 @@ class MemeListAdapter(
     override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: MemeViewHolder, position: Int) {
-        val value: MemeDto = list[position]
+        val value: MemeModel = list[position]
         Glide.with(ctx).load(value.photoUrl).into(holder.memeImage)
         holder.title.text = value.title
         val imageResource = if (value.isFavorite) R.drawable.fav_selected else R.drawable.fav
