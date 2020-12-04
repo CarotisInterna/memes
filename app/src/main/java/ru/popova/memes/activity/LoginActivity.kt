@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import ru.popova.memes.R
 import ru.popova.memes.dto.LoginRequestDto
-import ru.popova.memes.task.TaskManager
+import ru.popova.memes.task.LoginTask
 import ru.popova.memes.util.Failure
 import ru.popova.memes.util.PreferencesService
 import ru.popova.memes.util.Success
@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
         progressBar.visibility = ProgressBar.VISIBLE
         //Emulate long process
         Handler().postDelayed({
-            val task = TaskManager.loginTask.execute(loginRequestDto)
+            val task = LoginTask().execute(loginRequestDto)
             when (val result = task.get()) {
                 is Success -> {
                     Log.i(LoginActivity::class.toString(), "Success:${result.value}")
