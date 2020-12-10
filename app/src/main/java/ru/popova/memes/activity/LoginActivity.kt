@@ -12,6 +12,7 @@ import ru.popova.memes.R
 import ru.popova.memes.dto.LoginRequestDto
 import ru.popova.memes.task.TaskManager
 import ru.popova.memes.util.Failure
+import ru.popova.memes.util.PreferencesService
 import ru.popova.memes.util.Success
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText
 import studio.carbonylgroup.textfieldboxes.TextFieldBoxes
@@ -65,17 +66,18 @@ class LoginActivity : AppCompatActivity() {
                 is Success -> {
                     Log.i(LoginActivity::class.toString(), "Success:${result.value}")
 
+                    PreferencesService(this@LoginActivity).saveAuthInfo(result.value)
 
                     startActivity(Intent(this@LoginActivity, MainTabActivity::class.java))
                 }
-                is Failure -> showSnackbarWIthErrorMessage()
+                is Failure -> showSnackbarWithErrorMessage()
             }
             progressBar.visibility = ProgressBar.GONE
             loginButton.visibility = Button.VISIBLE
-        }, 3000)
+        }, 300)
     }
 
-    private fun showSnackbarWIthErrorMessage() {
+    private fun showSnackbarWithErrorMessage() {
         val snackbar = Snackbar.make(
             findViewById(R.id.login_view),
             "Во время запроса произошла ошибка, возможно вы неверно ввели логин/пароль",
