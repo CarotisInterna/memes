@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import ru.popova.memes.R
 import ru.popova.memes.adapter.MemeListAdapter
-import ru.popova.memes.task.TaskManager
+import ru.popova.memes.task.CheckDbIsEmptyTask
+import ru.popova.memes.task.MemeFromApiLoadingTask
+import ru.popova.memes.task.MemeFromDbLoadingTask
+import ru.popova.memes.task.MemeLoadingTask
 import ru.popova.memes.util.Failure
 import ru.popova.memes.util.Success
 
@@ -30,17 +33,22 @@ class MemeListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val refresh: SwipeRefreshLayout = view.findViewById(R.id.swipe_refresh)
         refresh.setOnRefreshListener {
-            load(view)
+            load(view, MemeFromApiLoadingTask())
             refresh.isRefreshing = false
         }
-        load(view)
+        val memeLoadingTask = when {
+            CheckDbIsEmptyTask().execute().get() -> MemeFromApiLoadingTask()
+            else -> MemeFromDbLoadingTask()
+        }
+
+        load(view, memeLoadingTask)
     }
 
-    private fun load(view: View) {
+    private fun load(view: View, memeLoadingTask: MemeLoadingTask) {
         val progressBar: ProgressBar = view.findViewById(R.id.progress_bar_load_memes)
         progressBar.visibility = View.VISIBLE
         Handler().postDelayed({
-            val task = TaskManager.memeTask.execute()
+            val task = memeLoadingTask.execute()
             val list = when (val result = task.get()) {
                 is Success -> result.value
                 is Failure -> emptyList()

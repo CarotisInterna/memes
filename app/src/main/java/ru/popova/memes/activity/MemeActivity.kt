@@ -6,8 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import ru.popova.memes.MemeModel
 import ru.popova.memes.R
-import ru.popova.memes.dto.MemeDto
 
 class MemeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class MemeActivity : AppCompatActivity() {
             this@MemeActivity.finish()
         }
 
-        val memeDto = intent?.getSerializableExtra("meme") as MemeDto
+        val memeDto = intent?.getSerializableExtra("meme") as MemeModel
 
         val titleText: TextView = findViewById(R.id.meme_title)
         val descText: TextView = findViewById(R.id.meme_desc)
