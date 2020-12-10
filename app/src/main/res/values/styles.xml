@@ -1,5 +1,23 @@
 <resources>
 
+    <style name="title">
+        <item name="android:textSize">
+            24sp
+        </item>
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+
+    <style name="gennytails">
+        <item name="android:textSize">
+            12sp
+        </item>
+        <item name="android:textColor">
+            #CCFFFFFF
+        </item>
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat">
         <!--        <item name="android:windowBackground">@drawable/background_splash</item>-->
     </style>
