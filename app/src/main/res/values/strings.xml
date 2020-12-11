@@ -9,4 +9,13 @@
     <string name="profile_placeholder">Profile here</string>
     <string name="new_meme_placeholder">Add new meme here</string>
     <string name="err">"Не удалось загрузить ленту.\nОбновите экран или попробуйте позже."</string>
+    <string name="create_btn">Создать</string>
+    <string name="desc_hint">Описание мема</string>
+    <string name="title_hint">Заголовок</string>
+    <string name="add_image">add image</string>
+    <string name="take_photo">Сделать фото</string>
+    <string name="from_gallery">Из галереи</string>
+    <string name="choose_photo">Выбрать фото</string>
+    <string name="new_meme_pic">Картинка мема</string>
+    <string name="delete_new_meme_pic_btn">Удаление картинки</string>
 </resources>
