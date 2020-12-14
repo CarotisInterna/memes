@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import ru.popova.memes.MemeModel
 import ru.popova.memes.R
 import ru.popova.memes.task.SaveMemeTask
+import ru.popova.memes.util.MEME
 import ru.popova.memes.util.toDate
 
 class MemeActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class MemeActivity : AppCompatActivity() {
             this@MemeActivity.finish()
         }
 
-        val meme = intent?.getSerializableExtra("meme") as MemeModel
+        val meme = intent?.getSerializableExtra(MEME) as MemeModel
 
         val titleText: TextView = findViewById(R.id.meme_title)
         val descText: TextView = findViewById(R.id.meme_desc)
