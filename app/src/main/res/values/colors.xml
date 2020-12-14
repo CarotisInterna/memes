@@ -2,7 +2,9 @@
 <resources>
     <color name="main_color">#23213F</color>
     <color name="element_color">#1EF0D7</color>
+    <color name="element_disabled_color">#4D1EF0D7</color>
     <color name="element_pressed_color">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="snackbar">#FF575D</color>
     <color name="navbar">#12102B</color>
     <color name="secondary_color">#312F51</color>

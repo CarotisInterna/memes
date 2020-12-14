@@ -8,7 +8,7 @@ data class MemeModel(
     val id: String,
     val title: String,
     val description: String,
-    val isFavorite: Boolean,
+    var isFavorite: Boolean,
     val createdDate: Long,
     val photoUrl: String
 ) : Serializable {
