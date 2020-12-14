@@ -75,7 +75,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <EditText
-                    style="@style/new_meme.title"
+                    style="@style/NewMeme.Title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="16dp"
@@ -101,7 +101,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/new_meme_title">
 
                 <EditText
-                    style="@style/new_meme.desc"
+                    style="@style/NewMeme.Desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -151,7 +151,7 @@
                 android:src="@drawable/add_image"
                 app:borderWidth="0dp"
                 app:elevation="0dp"
-                app:shapeAppearanceOverlay="@style/new_meme_add_image_icon" />
+                app:shapeAppearanceOverlay="@style/NewMemeAddImageIcon" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </RelativeLayout>
 

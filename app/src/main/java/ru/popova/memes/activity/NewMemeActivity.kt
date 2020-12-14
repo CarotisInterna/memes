@@ -14,6 +14,7 @@ import ru.popova.memes.R
 import ru.popova.memes.activity.fragment.AddImageDialogFragment
 import ru.popova.memes.task.SaveMemeTask
 import ru.popova.memes.util.Failure
+import ru.popova.memes.util.PICTURE_URL
 import ru.popova.memes.util.Success
 import ru.popova.memes.util.isValid
 import java.util.*
@@ -67,7 +68,10 @@ class NewMemeActivity : AppCompatActivity() {
 
         addImageButton.setOnClickListener {
             val addImageFragment = AddImageDialogFragment { loadFromGalleryBtnClick() }
-            addImageFragment.show(supportFragmentManager, AddImageDialogFragment::class.java.toString())
+            addImageFragment.show(
+                supportFragmentManager,
+                AddImageDialogFragment::class.java.toString()
+            )
         }
 
     }
@@ -82,9 +86,7 @@ class NewMemeActivity : AppCompatActivity() {
     }
 
     private fun loadFromGalleryBtnClick() {
-        pictureUrl =
-            "https://sun1.informsvyaz.userapi.com/impg/dElnATEPe4eiiZ2Q3LViHAymfG815X5I" +
-                    "lLUnew/4RSLWDHnSRI.jpg?size=1250x1058&quality=96&proxy=1&sign=f7f561d2fedad04430b7569d3baa6086&type=album"
+        pictureUrl = PICTURE_URL
         Glide.with(this).load(pictureUrl).into(newMemePictureView)
 
         addImageButton.isEnabled = false
@@ -105,13 +107,17 @@ class NewMemeActivity : AppCompatActivity() {
         )
         when (SaveMemeTask().execute(meme).get()) {
             is Success -> {
-                Toast.makeText(this@NewMemeActivity, "Мем сохранен", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@NewMemeActivity,
+                    getString(R.string.meme_saved),
+                    Toast.LENGTH_SHORT
+                ).show()
                 finish()
             }
             is Failure -> {
                 Toast.makeText(
                     this@NewMemeActivity,
-                    "Не удалось сохранить мем",
+                    getString(R.string.meme_not_saved),
                     Toast.LENGTH_SHORT
                 ).show()
             }

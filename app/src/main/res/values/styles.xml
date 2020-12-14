@@ -1,24 +1,6 @@
 <resources>
 
-    <style name="title">
-        <item name="android:textSize">
-            24sp
-        </item>
-        <item name="android:textColor">
-            #FFFFFF
-        </item>
-    </style>
-
-    <style name="gennytails">
-        <item name="android:textSize">
-            12sp
-        </item>
-        <item name="android:textColor">
-            #CCFFFFFF
-        </item>
-    </style>
-
-    <style name="new_meme">
+    <style name="NewMeme">
         <item name="android:fontFamily">
             sans-serif
         </item>
@@ -27,7 +9,7 @@
         </item>
     </style>
 
-    <style name="new_meme.title">
+    <style name="NewMeme.Title">
         <item name="android:textSize">
             24sp
         </item>
@@ -36,13 +18,13 @@
         </item>
     </style>
 
-    <style name="new_meme.desc">
+    <style name="NewMeme.Desc">
         <item name="android:textSize">
             14sp
         </item>
     </style>
 
-    <style name="new_meme_add_image_icon">
+    <style name="NewMemeAddImageIcon">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">21%</item>
     </style>

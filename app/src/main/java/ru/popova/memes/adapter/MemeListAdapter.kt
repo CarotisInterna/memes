@@ -13,21 +13,12 @@ import com.bumptech.glide.Glide
 import ru.popova.memes.MemeModel
 import ru.popova.memes.R
 import ru.popova.memes.activity.MemeActivity
-
-class MemeViewHolder(
-    itemView: View,
-    val memeImage: ImageView = itemView.findViewById(R.id.meme_image),
-    val title: TextView = itemView.findViewById(R.id.meme_title),
-    val favButton: ImageButton = itemView.findViewById(R.id.favButton),
-    val shareButton: ImageButton = itemView.findViewById(R.id.shareButton)
-) : RecyclerView.ViewHolder(itemView)
-
+import ru.popova.memes.util.MEME
 
 class MemeListAdapter(
     private val ctx: Context,
     private val list: List<MemeModel>
-) :
-    RecyclerView.Adapter<MemeViewHolder>() {
+) : RecyclerView.Adapter<MemeListAdapter.MemeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemeViewHolder {
         return MemeViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.cell_meme, parent, false)!!
@@ -44,8 +35,16 @@ class MemeListAdapter(
         holder.favButton.setImageResource(imageResource)
         holder.itemView.setOnClickListener {
             val intent = Intent(ctx, MemeActivity::class.java)
-            intent.putExtra("meme", value)
+            intent.putExtra(MEME, value)
             ctx.startActivity(intent)
         }
     }
+
+    class MemeViewHolder(
+        itemView: View,
+        val memeImage: ImageView = itemView.findViewById(R.id.meme_image),
+        val title: TextView = itemView.findViewById(R.id.meme_title),
+        val favButton: ImageButton = itemView.findViewById(R.id.favButton),
+        val shareButton: ImageButton = itemView.findViewById(R.id.shareButton)
+    ) : RecyclerView.ViewHolder(itemView)
 }

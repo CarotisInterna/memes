@@ -8,14 +8,19 @@
     <string name="memes_list_title">Популярные мемы</string>
     <string name="profile_placeholder">Profile here</string>
     <string name="new_meme_placeholder">Add new meme here</string>
-    <string name="err">"Не удалось загрузить ленту.\nОбновите экран или попробуйте позже."</string>
+    <string name="error_on_getting_memes">"Не удалось загрузить ленту.\nОбновите экран или попробуйте позже."</string>
     <string name="create_btn">Создать</string>
     <string name="desc_hint">Описание мема</string>
     <string name="title_hint">Заголовок</string>
-    <string name="add_image">add image</string>
+    <string name="add_image">Добавить изображение</string>
     <string name="take_photo">Сделать фото</string>
     <string name="from_gallery">Из галереи</string>
     <string name="choose_photo">Выбрать фото</string>
     <string name="new_meme_pic">Картинка мема</string>
     <string name="delete_new_meme_pic_btn">Удаление картинки</string>
+    <string name="field_cannot_be_empty">Поле не может быть пустым</string>
+    <string name="meme_saved">Мем сохранен</string>
+    <string name="meme_not_saved">Мем сохранен</string>
+    <string name="meme_date">Дата мема</string>
+    <string name="meme_desc">Описание мема</string>
 </resources>

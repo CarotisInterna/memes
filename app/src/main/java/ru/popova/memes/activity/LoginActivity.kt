@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
             val noErrors =
                 fields
                     .filter { it.value.text.isBlank() }
-                    .onEach { it.key.setError("Поле не может быть пустым", false) }
+                    .onEach { it.key.setError(getString(R.string.field_cannot_be_empty), false) }
                     .isEmpty()
             if (noErrors) {
                 runAuthenticationProcess(
