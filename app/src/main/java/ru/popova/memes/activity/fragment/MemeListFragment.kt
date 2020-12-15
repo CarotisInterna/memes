@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import ru.popova.memes.R
 import ru.popova.memes.adapter.MemeListAdapter
@@ -48,26 +49,15 @@ class MemeListFragment : Fragment() {
         val progressBar: ProgressBar = view.findViewById(R.id.progress_bar_load_memes)
         progressBar.visibility = View.VISIBLE
         Handler().postDelayed({
-            val task = memeLoadingTask.execute()
-            val list = when (val result = task.get()) {
+            val recyclerView: RecyclerView = view.findViewById(R.id.memes_list_recycler_view)
+            val errorMessageView: TextView = view.findViewById(R.id.error_retreiving_memes)
+            val list = when (val result = memeLoadingTask.execute().get()) {
                 is Success -> result.value
                 is Failure -> emptyList()
             }
-
-            val memeListAdapter = MemeListAdapter(
-                view.context,
-                list
-            )
-            val recyclerView: RecyclerView = view.findViewById(R.id.memes_list_recycler_view)
-            val errorMessageView: TextView = view.findViewById(R.id.error_retreiving_memes)
-            recyclerView.adapter = memeListAdapter
-            if (list.isEmpty()) {
-                recyclerView.visibility = View.GONE
-                errorMessageView.visibility = View.VISIBLE
-            } else {
-                recyclerView.visibility = View.VISIBLE
-                errorMessageView.visibility = View.GONE
-            }
+            errorMessageView.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+            recyclerView.adapter = MemeListAdapter(requireContext(), list)
+            recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
             progressBar.visibility = View.GONE
         }, 300)
 

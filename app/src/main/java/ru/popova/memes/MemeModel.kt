@@ -10,7 +10,8 @@ data class MemeModel(
     val description: String,
     var isFavorite: Boolean,
     val createdDate: Long,
-    val photoUrl: String
+    val photoUrl: String,
+    val local: Boolean
 ) : Serializable {
     constructor(dto: MemeDto) : this(
         dto.id,
@@ -18,7 +19,8 @@ data class MemeModel(
         dto.description,
         dto.isFavorite,
         dto.createdDate,
-        dto.photoUrl
+        dto.photoUrl,
+        false
     )
 
     constructor(entity: Meme) : this(
@@ -27,6 +29,7 @@ data class MemeModel(
         entity.description,
         entity.isFavorite,
         entity.createdDate,
-        entity.photoUrl
+        entity.photoUrl,
+        entity.isLocal
     )
 }
