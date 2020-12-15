@@ -17,7 +17,8 @@ import ru.popova.memes.util.MEME
 
 class MemeListAdapter(
     private val ctx: Context,
-    private val list: List<MemeModel>
+    private val list: List<MemeModel>,
+    private val favBtnClickListener: (MemeModel) -> Unit
 ) : RecyclerView.Adapter<MemeListAdapter.MemeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemeViewHolder {
         return MemeViewHolder(
@@ -31,14 +32,21 @@ class MemeListAdapter(
         val value: MemeModel = list[position]
         Glide.with(ctx).load(value.photoUrl).into(holder.memeImage)
         holder.title.text = value.title
-        val imageResource = if (value.isFavorite) R.drawable.fav_selected else R.drawable.fav
+        val imageResource = getImageResource(value)
         holder.favButton.setImageResource(imageResource)
+        holder.favButton.setOnClickListener {
+            favBtnClickListener(value)
+            holder.favButton.setImageResource(getImageResource(value))
+        }
         holder.itemView.setOnClickListener {
             val intent = Intent(ctx, MemeActivity::class.java)
             intent.putExtra(MEME, value)
             ctx.startActivity(intent)
         }
     }
+
+    private fun getImageResource(value: MemeModel) =
+        if (value.isFavorite) R.drawable.fav_selected else R.drawable.fav
 
     inner class MemeViewHolder(
         itemView: View,

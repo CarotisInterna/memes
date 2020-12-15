@@ -1,7 +1,11 @@
 package ru.popova.memes.util
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.widget.EditText
+import ru.popova.memes.MemeModel
+import ru.popova.memes.activity.fragment.MemeListFragment
+import ru.popova.memes.task.SaveMemeTask
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,4 +26,16 @@ fun toDate(millis: Long): String {
     val cal = Calendar.getInstance()
     cal.timeInMillis = millis
     return simpleDateFormat.format(cal.time)
+}
+
+val favBtnClickListener: (MemeModel) -> Unit = {
+    it.isFavorite = !it.isFavorite
+    when (SaveMemeTask().execute(it).get()) {
+        is Success -> {
+            Log.i(MemeListFragment::class.java.toString(), "Meme updated")
+        }
+        is Failure -> {
+            Log.e(MemeListFragment::class.java.toString(), "Can not update meme")
+        }
+    }
 }

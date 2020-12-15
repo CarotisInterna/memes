@@ -35,4 +35,15 @@ class PreferencesService(private val ctx: Context) {
             sharedPreferences.getString(DESC, "")
         )
     }
+
+    fun clearAuthInfo() {
+        val sharedPreferences = ctx.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+        val edit = sharedPreferences.edit()
+        edit.remove(ID)
+        edit.remove(USERNAME)
+        edit.remove(FIRSTNAME)
+        edit.remove(LASTNAME)
+        edit.remove(DESC)
+        edit.apply()
+    }
 }

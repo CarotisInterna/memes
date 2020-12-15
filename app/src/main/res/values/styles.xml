@@ -29,5 +29,10 @@
         <item name="cornerSize">21%</item>
     </style>
 
+    <style name="Profile.AlertDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">@color/secondary_color</item>
+        <item name="colorOnPrimary">@color/element_color</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat" />
 </resources>

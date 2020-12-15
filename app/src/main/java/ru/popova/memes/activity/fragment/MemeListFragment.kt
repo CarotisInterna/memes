@@ -19,6 +19,7 @@ import ru.popova.memes.task.MemeFromDbLoadingTask
 import ru.popova.memes.task.MemeLoadingTask
 import ru.popova.memes.util.Failure
 import ru.popova.memes.util.Success
+import ru.popova.memes.util.favBtnClickListener
 
 
 class MemeListFragment : Fragment() {
@@ -56,7 +57,8 @@ class MemeListFragment : Fragment() {
                 is Failure -> emptyList()
             }
             errorMessageView.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
-            recyclerView.adapter = MemeListAdapter(requireContext(), list)
+            recyclerView.adapter =
+                MemeListAdapter(requireContext(), list, favBtnClickListener)
             recyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
             progressBar.visibility = View.GONE
         }, 300)
