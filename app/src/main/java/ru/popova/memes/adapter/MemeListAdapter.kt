@@ -40,7 +40,7 @@ class MemeListAdapter(
         }
     }
 
-    class MemeViewHolder(
+    inner class MemeViewHolder(
         itemView: View,
         val memeImage: ImageView = itemView.findViewById(R.id.meme_image),
         val title: TextView = itemView.findViewById(R.id.meme_title),

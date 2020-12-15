@@ -103,7 +103,8 @@ class NewMemeActivity : AppCompatActivity() {
             descEditText.editableText.toString(),
             false,
             Calendar.getInstance().timeInMillis,
-            pictureUrl!!
+            pictureUrl!!,
+            true
         )
         when (SaveMemeTask().execute(meme).get()) {
             is Success -> {

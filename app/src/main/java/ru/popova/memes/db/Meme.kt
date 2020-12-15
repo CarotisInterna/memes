@@ -14,6 +14,7 @@ data class Meme(
     @ColumnInfo(name = "favorite") val isFavorite: Boolean,
     @ColumnInfo(name = "created") val createdDate: Long,
     @ColumnInfo(name = "photo_url") val photoUrl: String,
+    @ColumnInfo(name = "local") val isLocal: Boolean
 ) {
     constructor(dto: MemeDto) : this(
         dto.id,
@@ -21,7 +22,8 @@ data class Meme(
         dto.description,
         dto.isFavorite,
         dto.createdDate,
-        dto.photoUrl
+        dto.photoUrl,
+        false
     )
 
     constructor(model: MemeModel) : this(
@@ -30,6 +32,7 @@ data class Meme(
         model.description,
         model.isFavorite,
         model.createdDate,
-        model.photoUrl
+        model.photoUrl,
+        model.local
     )
 }

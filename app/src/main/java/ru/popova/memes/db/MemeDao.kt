@@ -7,6 +7,9 @@ interface MemeDao {
     @Query("SELECT * FROM meme")
     fun getAll(): List<Meme>
 
+    @Query("SELECT * FROM meme WHERE local = 1")
+    fun getLocal(): List<Meme>
+
     @Query("SELECT count(*) FROM meme")
     fun count(): Int
 
