@@ -2,6 +2,7 @@ package ru.popova.memes.util
 
 import android.content.Context
 import ru.popova.memes.dto.AuthInfo
+import ru.popova.memes.dto.UserInfo
 
 private const val APP_PREFERENCES = "MemesPreferences"
 private const val ID = APP_PREFERENCES + "_id"
@@ -22,5 +23,16 @@ class PreferencesService(private val ctx: Context) {
         edit.putString(LASTNAME, authInfo.userInfo.lastName)
         edit.putString(DESC, authInfo.userInfo.userDescription)
         edit.apply()
+    }
+
+    fun getUserInfo(): UserInfo {
+        val sharedPreferences = ctx.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+        return UserInfo(
+            sharedPreferences.getInt(ID, 0),
+            sharedPreferences.getString(USERNAME, "user"),
+            sharedPreferences.getString(FIRSTNAME, ""),
+            sharedPreferences.getString(LASTNAME, ""),
+            sharedPreferences.getString(DESC, "")
+        )
     }
 }

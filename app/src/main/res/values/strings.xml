@@ -23,4 +23,7 @@
     <string name="meme_not_saved">Мем сохранен</string>
     <string name="meme_date">Дата мема</string>
     <string name="meme_desc">Описание мема</string>
+    <string name="profile">Профиль</string>
+    <string name="profile_pic">Картинка профиля</string>
+    <string name="menu_desc">Меню</string>
 </resources>
