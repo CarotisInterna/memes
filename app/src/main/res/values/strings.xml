@@ -26,4 +26,8 @@
     <string name="profile">Профиль</string>
     <string name="profile_pic">Картинка профиля</string>
     <string name="menu_desc">Меню</string>
+    <string name="about">О приложении</string>
+    <string name="logout">Выйти</string>
+    <string name="logout_message">Действительно хотите выйти?</string>
+    <string name="cancel">Отмена</string>
 </resources>
